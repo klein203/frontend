@@ -1,6 +1,5 @@
 import React from 'react';
-//import logo from './logo.svg';
-import './App.css';
+import '../App.css';
 import axios from 'axios';
 
 
@@ -22,7 +21,10 @@ class TrData extends React.Component {
 }
 
 
-class List extends React.Component {
+/*
+	axios (ajax)
+*/
+class DataTable extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
@@ -52,19 +54,21 @@ class List extends React.Component {
 	render() {
 		if (this.state.isLoaded) {
 			return (
-				<table className="table table-bordered">
-					<thead>
-						<tr>
-							<th className="text-center">ID</th>
-							<th className="text-center">姓名</th>
-							<th className="text-center">年龄</th>
-							<th className="text-center">性别</th>
-						</tr>
-					</thead>
-					<tbody>
-						<TrData users={this.state.users} />
-					</tbody>
-				</table>
+				<div>
+					<table className="table table-bordered">
+						<thead>
+							<tr>
+								<th className="text-center">ID</th>
+								<th className="text-center">姓名</th>
+								<th className="text-center">年龄</th>
+								<th className="text-center">性别</th>
+							</tr>
+						</thead>
+						<tbody>
+							<TrData users={this.state.users} />
+						</tbody>
+					</table>
+				</div>
 			);
 		} else {
 			return (
@@ -74,4 +78,4 @@ class List extends React.Component {
 	}
 }
 
-export default List;
+export default DataTable;

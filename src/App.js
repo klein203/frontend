@@ -1,13 +1,17 @@
 import React, { Component } from 'react';
-import { hashHistory } from 'react-router'  
-import AppRouter from './router';
+import { Route, Switch } from 'react-router-dom';
+import HomePage from './routes'
+import LoginPage from './routes/auth'
 import './App.css';
 
 
 class App extends Component {
 	render() {
 		return (
-			<AppRouter />
+			<Switch>
+				<Route exact path='/' component={HomePage} />
+				<Route path='/login' component={LoginPage} />
+			</Switch>
 		);
 	}
 }

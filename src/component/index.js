@@ -1,16 +1,12 @@
 import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
 import { Layout, Row, Col, Avatar, Input, Menu, Dropdown, Icon, Badge } from 'antd';
 import 'antd/dist/antd.css';
 
-// import SiderComponent from './sider'
-// import Tooltip from '../component/tooltip'
-// import MyNews from '../component/myNews'
 
 const { Header, Footer, Sider, Content } = Layout;
 
 
-class MainPage extends Component {
+class HomePage extends Component {
     render() {
         return (
             <div>
@@ -23,8 +19,8 @@ class MainPage extends Component {
                     <Footer>Footer</Footer>
                 </Layout>
             </div>
-        )
+        );
     }
 }
 
-export default MainPage;
+export default HomePage;

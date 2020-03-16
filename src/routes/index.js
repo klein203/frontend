@@ -1,23 +1,12 @@
 import React, { Component } from 'react';
-import { Layout } from 'antd';
 import 'antd/dist/antd.css';
-
-
-const { Header, Footer, Sider, Content } = Layout;
 
 
 class HomePage extends Component {
     render() {
         return (
             <div>
-                <Layout>
-                    <Header>Header</Header>
-                    <Layout>
-                        <Sider>Sider</Sider>
-                        <Content>Content</Content>
-                    </Layout>
-                    <Footer>Footer</Footer>
-                </Layout>
+                <h2>Home Page</h2>
             </div>
         );
     }

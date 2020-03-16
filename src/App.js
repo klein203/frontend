@@ -1,17 +1,36 @@
 import React, { Component } from 'react';
-import { Route, Switch } from 'react-router-dom';
-import HomePage from './routes'
-import LoginPage from './routes/auth'
+import { Link } from 'react-router-dom';
+import { Layout, Menu } from 'antd';
+import 'antd/dist/antd.css';
 import './App.css';
+
+
+const { Header, Footer, Sider, Content } = Layout;
+const SubMenu = Menu.SubMenu;
+const Item = Menu.Item;
 
 
 class App extends Component {
 	render() {
 		return (
-			<Switch>
-				<Route exact path='/' component={HomePage} />
-				<Route path='/login' component={LoginPage} />
-			</Switch>
+            <div>
+                <Layout>
+                    <Header>Header</Header>
+                    <Layout>
+                        <Sider>
+							<div>
+								<Menu>
+									<Item><Link to='/'>Home</Link></Item>
+									<Item><Link to='/login'>Login</Link></Item>
+									<Item><Link to='/demo'>Demo</Link></Item>
+								</Menu>
+							</div>
+						</Sider>
+                        <Content>{this.props.children}</Content>
+                    </Layout>
+                    <Footer>Copyright 2020</Footer>
+                </Layout>
+            </div>
 		);
 	}
 }

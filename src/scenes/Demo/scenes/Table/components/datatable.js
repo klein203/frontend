@@ -13,15 +13,20 @@ class DataTable extends React.Component {
 			columns: [{
 				title: '#',
 				dataIndex: 'id',
+				key: 'id',
 			}, {
 				title: 'Name',
 				dataIndex: 'name',
+				key: 'name',
 			}, {
 				title: 'Gender',
 				dataIndex: 'sex',
+				key: 'sex',
+			}, {
 			}, {
 				title: 'Age',
 				dataIndex: 'age',
+				key: 'age',
 			}],
 
 			data: []

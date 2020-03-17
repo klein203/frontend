@@ -1,4 +1,5 @@
 import React from 'react';
+import { Button } from 'antd';
 
 
 /*
@@ -8,16 +9,17 @@ class Popper extends React.Component {
 	constructor() {
 		super();
 		this.state = {
-			msg: "Hello World!",
-			clickCounter: 0
+			message: "Hello World!",
+			counter: 0,
 		};
-		this.handleClick = this.handleClick.bind(this, this.state.msg);
+		this.handleClick = this.handleClick.bind(this);
 	}
 
-	handleClick = (msg, e) => {
+	handleClick = (e) => {
 		e.preventDefault();
 		this.setState((prevState, props) => ({
-			clickCounter: prevState.clickCounter + props.step
+			message: "Hello World! Previous counter is " + prevState.counter + '.',
+			counter: prevState.counter + props.step,
 		}));
 	}
 
@@ -53,7 +55,8 @@ class Popper extends React.Component {
 	render() {
 		return (
 			<div>
-				<a href="https://reactjs.org" onClick={this.handleClick}>Click</a> ({this.state.clickCounter} - {this.state.msg})
+				<Button type="link" onClick={this.handleClick}>Click to Count</Button>
+				<span>Clicked for {this.state.counter} times and message is {this.state.message})</span>
 			</div>
 		);
 	}

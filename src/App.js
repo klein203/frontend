@@ -7,7 +7,8 @@ import './App.css';
 
 
 const { SubMenu } = Menu;
-const { Header, Content, Sider, Footer } = Layout;
+// const { Header } = Layout;
+const { Content, Sider, Footer } = Layout;
 
 
 class App extends Component {
@@ -28,6 +29,7 @@ class App extends Component {
 
 	getContent() {
 		console.log(this.props.location.pathname);
+		console.log(this.props.children);
 		return this.props.children
 	}
 
@@ -36,14 +38,16 @@ class App extends Component {
 			<Layout id="components-layout-side" style={{ minHeight: '100vh' }}>
 				<Sider collapsible collapsed={this.state.collapsed} onCollapse={this.onCollapse}>
 					<div className="logo" />
-					<Menu theme="dark" mode="inline" defaultSelectedKeys={['1']} defaultOpenKeys={['menu_admin', 'menu_demo']}>
-						<SubMenu key="menu_admin" title={<span><UserOutlined />Admin</span>}>
-							<Menu.Item key="1"><Link to='/'>Home Page</Link></Menu.Item>
-							<Menu.Item key="2"><Link to='/login'>Login Page</Link></Menu.Item>
+					<Menu theme="dark" mode="inline" defaultSelectedKeys={['0']} defaultOpenKeys={['menu_auth', 'menu_demo']}>
+						<Menu.Item key="0"><Link to='/'>Home</Link></Menu.Item>
+						<SubMenu key="menu_auth" title={<span><UserOutlined />Auth</span>}>
+							<Menu.Item key="1"><Link to='/auth/register'>Register Page</Link></Menu.Item>
+							<Menu.Item key="2"><Link to='/auth/login'>Login Page</Link></Menu.Item>
 						</SubMenu>
 						<SubMenu key="menu_demo" title={<span><LaptopOutlined />Demo</span>}>
-							<Menu.Item key="3"><Link to='/demo/clock'>Clocks</Link></Menu.Item>
-							<Menu.Item key="4"><Link to='/demo/table'>Table</Link></Menu.Item>
+							<Menu.Item key="3"><Link to='/demo/clock'>Clocks (map)</Link></Menu.Item>
+							<Menu.Item key="4"><Link to='/demo/table'>Table (axios)</Link></Menu.Item>
+							<Menu.Item key="5"><Link to='/demo/popper'>Popper (Button)</Link></Menu.Item>
 						</SubMenu>
 					</Menu>
 				</Sider>

@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import DataTable from '../../components/common/datatable'
+import React from 'react';
+import DataTable from './components/datatable'
 
 
 class TablePage extends React.Component {

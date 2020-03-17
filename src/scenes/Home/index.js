@@ -1,12 +1,12 @@
-import React, { Component } from 'react';
+import React from 'react';
 import 'antd/dist/antd.css';
 
 
-class HomePage extends Component {
+class HomePage extends React.Component {
     render() {
         return (
             <div>
-                <h2>Home Page</h2>
+                <h2>Home Page - Under Construction</h2>
             </div>
         );
     }

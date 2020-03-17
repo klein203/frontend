@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import Clocks from '../../components/common/clock'
+import React from 'react';
+import Clocks from './components/clock'
 
 
 const clockConfig = [

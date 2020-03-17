@@ -1,4 +1,6 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import { List } from 'antd';
 
 
 /*
@@ -6,21 +8,26 @@ import React from 'react';
 */
 class Clock extends React.Component {
 	static defaultProps = {
-		name: "Default"
+		name: "Default",
+		interval: 1,
+	}
+
+	static propTypes = {
+		name: PropTypes.string,
+		interval: PropTypes.number,
 	}
 
 	constructor(props) {
 		super(props);
 		this.state = {
 			date: new Date(),
-			interval: Math.round(Math.random() * 10 + 1, 0) * 1000
 		};
 	}
 
 	componentDidMount() {
 		this.timerID = setInterval(
 			() => this.tick(),
-			this.state.interval
+			this.props.interval * 1000
 		);
 	}
 
@@ -30,37 +37,37 @@ class Clock extends React.Component {
 
 	tick() {
 		this.setState({
-			date: new Date()
+			date: new Date(),
 		});
 	}
 
 	render() {
 		return (
-			<div>
-				{this.props.name} @{this.state.interval}ms, Now: {this.state.date.toLocaleTimeString()}
-			</div>
+			<span>
+				{this.props.name}: {this.state.date.toLocaleTimeString()} update at every {this.props.interval}s 
+			</span>
 		);
 	}
 }
 
 
 /*
-    map, <li> with key
+    map
 */
-class ClockBlock extends React.Component {
+class Clocks extends React.Component {
 	render() {
 		return (
-			<div>
-				<ul>
-					{this.props.config.map((c) =>
-						<li key={c.id}>
-							<Clock name={c.name} />
-						</li>
+			<List header={<div>Clocks</div>} bordered>
+				{this.props.config.map((c) => {
+					return (
+						<List.Item key={c.id}>
+							<Clock name={c.name} interval={c.interval} />
+						</List.Item>
 					)}
-				</ul>
-			</div>
+				)}
+			</List>
 		);
 	}
 }
 
-export default ClockBlock;
+export default Clocks;

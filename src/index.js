@@ -6,6 +6,8 @@ import App from './App';
 import HomePage from './routes'
 import LoginPage from './routes/auth'
 import DemoPage from './routes/demo'
+import ClockPage from './routes/demo/clock'
+import TablePage from './routes/demo/table'
 import * as serviceWorker from './serviceWorker';
 
 
@@ -15,7 +17,9 @@ ReactDOM.render(
             <Switch>
                 <Route exact path='/' component={HomePage} />
                 <Route path='/login' component={LoginPage} />
-                <Route path='/demo' component={DemoPage} />
+                <Route exact path='/demo' component={DemoPage} />
+                <Route path='/demo/clock' component={ClockPage} />
+                <Route path='/demo/table' component={TablePage} />
             </Switch>
         </App>
     </BrowserRouter>,

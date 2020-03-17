@@ -1,23 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-
-
-class TrData extends React.Component {
-	render() {
-		return (
-			this.props.users.map((user, i) => {
-				return (
-					<tr key={user.id} className="text-center">
-						<td>{user.id}</td>
-						<td>{user.title}</td>
-						<td>{user.name}</td>
-						<td>{user.sex}</td>
-					</tr>
-				)
-			})
-		)
-	}
-}
+import { Table } from 'antd';
 
 
 /*
@@ -27,53 +10,41 @@ class DataTable extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			users: [],
-			isLoaded: false
+			columns: [{
+				title: '#',
+				dataIndex: 'id',
+			}, {
+				title: 'Name',
+				dataIndex: 'name',
+			}, {
+				title: 'Gender',
+				dataIndex: 'sex',
+			}, {
+				title: 'Age',
+				dataIndex: 'age',
+			}],
+
+			data: []
 		}
 	}
 
 	componentDidMount() {
 		const that = this;
 		axios.get('https://5b5e71c98e9f160014b88cc9.mockapi.io/api/v1/lists')
-			.then(function (response) {
+			.then(resp => {
 				that.setState({
-					users: response.data,
-					isLoaded: true
-				});
-			})
-			.catch(function (error) {
-				console.log(error);
-				that.setState({
-					isLoaded: false,
-					error: error
+					data: resp.data
 				})
 			})
+			.catch(error => {
+				console.log(error);
+			});
 	}
 
 	render() {
-		if (this.state.isLoaded) {
-			return (
-				<div>
-					<table className="table table-bordered">
-						<thead>
-							<tr>
-								<th className="text-center">ID</th>
-								<th className="text-center">姓名</th>
-								<th className="text-center">年龄</th>
-								<th className="text-center">性别</th>
-							</tr>
-						</thead>
-						<tbody>
-							<TrData users={this.state.users} />
-						</tbody>
-					</table>
-				</div>
-			);
-		} else {
-			return (
-				<div>Loading</div>
-			);
-		}
+		return (
+			<Table columns={this.state.columns} dataSource={this.state.data} />
+		)
 	}
 }
 

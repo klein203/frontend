@@ -20,6 +20,14 @@ class App extends React.Component {
 				<BrowserRouter>
 					<MainFrame>
 						<Switch>
+							{/* {
+								router.map(
+									({path, componentName, exact=true, routes=[]}, key) => {
+										return (
+										<Route exact={exact} key={key} path={path} render={
+											props => (<componentName {...props} routes={routes} />)
+										}/>
+									)} */}
 							<Route exact path='/' component={HomePage} />
 							<Route path='/demo/clock' component={ClockPage} />
 							<Route path='/demo/table' component={TablePage} />

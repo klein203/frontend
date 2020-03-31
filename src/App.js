@@ -2,7 +2,8 @@ import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import 'antd/dist/antd.css';
 import './App.css';
-import MainFrame from './scenes'
+import MainFrame from './scenes/Main'
+import router from './router';
 import HomePage from './scenes/Home';
 import ClockPage from './scenes/Demo/scenes/Clock';
 import PopperPage from './scenes/Demo/scenes/Popper';
@@ -20,20 +21,18 @@ class App extends React.Component {
 				<BrowserRouter>
 					<MainFrame>
 						<Switch>
-							{/* {
-								router.map(
-									({path, componentName, exact=true, routes=[]}, key) => {
-										return (
-										<Route exact={exact} key={key} path={path} render={
-											props => (<componentName {...props} routes={routes} />)
-										}/>
-									)} */}
-							<Route exact path='/' component={HomePage} />
-							<Route path='/demo/clock' component={ClockPage} />
-							<Route path='/demo/table' component={TablePage} />
-							<Route path='/demo/popper' component={PopperPage} />
-							<Route path='/auth/register' component={RegisterPage} />
-							<Route path='/auth/login' component={LoginPage} />
+							<Route exact path="/" >
+								<Route exact path='/' component={HomePage} />
+								<Route exact path="/demo" >
+									<Route path='/clock' component={ClockPage} />
+									<Route path='/table' component={TablePage} />
+									<Route path='/demo/popper' component={PopperPage} />
+								</Route>
+								<Route path="/auth" >
+									<Route path='/register' component={RegisterPage} />
+									<Route path='/login' component={LoginPage} />
+								</Route>
+							</Route>
 							<Route component={PageNotFoundPage} />
 						</Switch>
 					</MainFrame>
@@ -42,5 +41,15 @@ class App extends React.Component {
 		)
 	}
 }
+
+// class App extends React.Component {
+// 	render() {
+// 		return (
+// 			<div>
+
+// 			</div>
+// 		)
+// 	}
+// }
 
 export default App;

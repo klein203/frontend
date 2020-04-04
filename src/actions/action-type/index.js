@@ -1,4 +1,4 @@
 // action types
-export const ADD_NAME = 'ADD_NAME'
+export const OP_PLUS = 'OP_PLUS'
+export const OP_MINUS = 'OP_MINUS'
 
-export const ADD_AGE = 'ADD_AGE'

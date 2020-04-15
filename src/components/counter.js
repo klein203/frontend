@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 
-class CounterElements extends React.Component {
+class Counter extends React.Component {
     static propTypes = {
         value: PropTypes.number.isRequired,
         onIncreaseClick: PropTypes.func.isRequired,
@@ -19,8 +19,8 @@ class CounterElements extends React.Component {
                 <button onClick={() => onDecreaseClick(1)}> -1 </button>
                 <button onClick={() => onDecreaseClick(5)}> -5 </button>
             </div>
-        );
+        )
     }
 }
 
-export default CounterElements;
+export default Counter

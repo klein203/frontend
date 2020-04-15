@@ -1,4 +1,4 @@
-import { OP_PLUS, OP_MINUS } from '../actions/action-type'
+import { OP_PLUS, OP_MINUS } from '../types'
 
 
 const counter = (state = { count: 0 }, action) => {
@@ -16,4 +16,4 @@ const counter = (state = { count: 0 }, action) => {
     }
 }
 
-export default counter;
+export default counter

@@ -2,7 +2,8 @@ import React from 'react'
 // import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import 'antd/dist/antd.css'
 import './App.css'
-import Counter from './containers'
+import Counter from './containers/counter'
+import Weather from './containers/weather'
 // import MainFrame from './scenes/Main'
 // import router from './router'
 // import HomePage from './scenes/Home'
@@ -44,13 +45,14 @@ import Counter from './containers'
 // }
 
 class App extends React.Component {
-	render() {
-		return (
-			<div>
-				<Counter />
-			</div>
-		)
-	}
+    render() {
+        return (
+            <div>
+                <Counter />
+                <Weather />
+            </div>
+        )
+    }
 }
 
 export default App;

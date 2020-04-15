@@ -1,4 +1,4 @@
-import { OP_PLUS, OP_MINUS } from "./action-type"
+import { OP_PLUS, OP_MINUS } from "../types"
 
 // action creators
 export const plus = (number = 1) => ({

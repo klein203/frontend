@@ -5,18 +5,26 @@ import Weather from '../components/weather'
 
 
 const getWeather = () => {
-    console.log("----------------------===123----------")
+    const city = 'shanghai';
+    const api_key = 'c672fbe76cffd25080d1be5b21bd63fe';
     return async (dispatch, getState) => {
         try {
-            console.log("----------------------===124----------")
-            console.log(getState())
             const response = await fetch(
-                "http://www.weather.com.cn/data/sk/101280101.html"
-            )
-            const data = await response.json()
-            dispatch(success(data.info))
-        } catch {
-            dispatch(error())
+                "http://api.openweathermap.org/data/2.5/weather?q="+city+"&appid="+api_key
+                // , {
+                //     method: 'GET',
+                //     headers: {
+                //         'Access-Control-Allow-Origin': '*',
+                //         'Context-type': 'application/json; charset=utf-8'
+                //     },
+                //     // mode: 'no-cors'
+                // }
+            );
+            const data = await response.json();
+            dispatch(success(data));
+        } catch (e) {
+            console.log(e);
+            dispatch(error());
         }
     }
 }

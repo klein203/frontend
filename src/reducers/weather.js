@@ -1,6 +1,6 @@
 import { SUCCESS, ERROR } from "../types"
 
-const weather = (state = { city: '', WD: '' }, action) => {
+const weather = (state = { city: '', wind: '' }, action) => {
     switch (action.type) {
         case SUCCESS:
             return {

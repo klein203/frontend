@@ -1,13 +1,19 @@
 import React from 'react'
+import PropTypes from 'prop-types'
+
 
 class Weather extends React.Component {
+    static propTypes = {
+        onFetchClick: PropTypes.func.isRequired
+    }
+
     render() {
-        const { weather, state, onClickFetch } = this.props
+        const { weather, state, onFetchClick } = this.props
 
         return (
             <div>
-                {state === "success" ? <p>城市：{weather.city}，风向：{weather.WD}</p> : ''}
-                <button onClick={onClickFetch}>获取天气</button>
+                {state === "success" ? <p>City: {weather.name}<br/>Coord: lon_{weather.coord.lon} lat_{weather.coord.lat}</p> : ''}
+                <button onClick={() => onFetchClick()}>Fetch weather of Shanghai</button>
             </div>
         )
     }

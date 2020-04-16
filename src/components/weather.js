@@ -9,11 +9,10 @@ class Weather extends React.Component {
 
     render() {
         const { weather, state, onFetchClick } = this.props
-
         return (
             <div>
                 {state === "success" ? <p>City: {weather.name}<br/>Coord: lon_{weather.coord.lon} lat_{weather.coord.lat}</p> : ''}
-                <button onClick={() => onFetchClick()}>Fetch weather of Shanghai</button>
+                <button onClick={() => onFetchClick('shanghai')}>Fetch weather of Shanghai</button>
             </div>
         )
     }

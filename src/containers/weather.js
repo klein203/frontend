@@ -4,13 +4,12 @@ import { success, error } from '../actions/weather'
 import Weather from '../components/weather'
 
 
-const getWeather = () => {
-    const city = 'shanghai';
+const getWeather = (city) => {
     const api_key = 'c672fbe76cffd25080d1be5b21bd63fe';
-    return async (dispatch, getState) => {
+    return async (dispatch) => {
         try {
-            const response = await fetch(
-                "http://api.openweathermap.org/data/2.5/weather?q="+city+"&appid="+api_key
+            const url = "http://api.openweathermap.org/data/2.5/weather?q="+city+"&appid="+api_key;
+            const response = await fetch(url);                
                 // , {
                 //     method: 'GET',
                 //     headers: {
@@ -19,11 +18,11 @@ const getWeather = () => {
                 //     },
                 //     // mode: 'no-cors'
                 // }
-            );
             const data = await response.json();
+            console.log(dispatch);            
             dispatch(success(data));
-        } catch (e) {
-            console.log(e);
+        } catch (err) {
+            console.log(err);
             dispatch(error());
         }
     }
@@ -36,7 +35,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => (
     bindActionCreators({
-        onFetchClick: () => getWeather()
+        onFetchClick: (city) => getWeather(city)
     }, dispatch)
 )
 

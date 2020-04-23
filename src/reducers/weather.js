@@ -1,4 +1,4 @@
-import { SUCCESS, ERROR } from "../types"
+import { SUCCESS, ERROR } from '../types';
 
 const weather = (state = { city: '', wind: '' }, action) => {
     switch (action.type) {
@@ -12,8 +12,8 @@ const weather = (state = { city: '', wind: '' }, action) => {
                 state: "error"
             }
         default:
-            return state
+            return state;
     }
 }
 
-export default weather
+export default weather;

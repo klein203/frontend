@@ -1,5 +1,5 @@
-import React from 'react'
-import PropTypes from 'prop-types'
+import React from 'react';
+import PropTypes from 'prop-types';
 
 
 class Weather extends React.Component {
@@ -18,4 +18,4 @@ class Weather extends React.Component {
     }
 }
 
-export default Weather
+export default Weather;

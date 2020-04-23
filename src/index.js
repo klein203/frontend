@@ -1,18 +1,18 @@
-import React from 'react'
-import ReactDOM from 'react-dom'
-import { BrowserRouter, Route, Switch } from 'react-router-dom'
-import { createStore, applyMiddleware } from 'redux'
-import { Provider } from 'react-redux'
-import reducer from './reducers'
-import './index.css'
-import App from './App'
-import PageNotFoundPage from './scenes/System/scenes/PageNotFound'
-import thunk from 'redux-thunk'
-import logger from 'redux-logger'
-import * as serviceWorker from './serviceWorker'
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { createStore, applyMiddleware } from 'redux';
+import { Provider } from 'react-redux';
+import reducer from './reducers';
+import './index.css';
+import App from './App';
+import PageNotFoundPage from './scenes/System/scenes/PageNotFound';
+import thunk from 'redux-thunk';
+import logger from 'redux-logger';
+import * as serviceWorker from './serviceWorker';
 
-const middleware = [thunk, logger]
-const store = createStore(reducer, applyMiddleware(...middleware))
+const middleware = [thunk, logger];
+const store = createStore(reducer, applyMiddleware(...middleware));
 
 ReactDOM.render(
     <Provider store={store}>

@@ -1,4 +1,4 @@
-import { OP_PLUS, OP_MINUS } from '../types'
+import { OP_PLUS, OP_MINUS } from '../types';
 
 
 const counter = (state = { count: 0 }, action) => {
@@ -12,8 +12,8 @@ const counter = (state = { count: 0 }, action) => {
                 count: state.count - action.data
             }
         default:
-            return state
+            return state;
     }
 }
 
-export default counter
+export default counter;

@@ -1,5 +1,5 @@
-import React from 'react'
-import PropTypes from 'prop-types'
+import React from 'react';
+import PropTypes from 'prop-types';
 
 
 class Counter extends React.Component {
@@ -10,7 +10,7 @@ class Counter extends React.Component {
     }
 
     render() {
-        const { value, onIncreaseClick, onDecreaseClick } = this.props
+        const { value, onIncreaseClick, onDecreaseClick } = this.props;
         return (
             <div>
                 <span>{value}</span><br/>
@@ -19,8 +19,8 @@ class Counter extends React.Component {
                 <button onClick={() => onDecreaseClick(1)}> -1 </button>
                 <button onClick={() => onDecreaseClick(5)}> -5 </button>
             </div>
-        )
-    }
+        );
+    };
 }
 
-export default Counter
+export default Counter;

@@ -8,7 +8,7 @@ class Weather extends React.Component {
     }
 
     render() {
-        const { weather, state, onFetchClick } = this.props
+        const { weather, state, onFetchClick } = this.props;
         return (
             <div>
                 {state === "success" ? <p>City: {weather.name}<br/>Coord: lon_{weather.coord.lon} lat_{weather.coord.lat}</p> : ''}

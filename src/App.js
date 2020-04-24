@@ -2,8 +2,9 @@ import React from 'react';
 // import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import 'antd/dist/antd.css';
 import './App.css';
-import Counter from './containers/counter';
-import Weather from './containers/weather';
+// import Counter from './containers/counter';
+// import Weather from './containers/weather';
+import Questionnaire from './containers/Questionnaire';
 // import MainFrame from './scenes/Main';
 // import router from './router';
 // import HomePage from './scenes/Home';
@@ -48,8 +49,7 @@ class App extends React.Component {
     render() {
         return (
             <div>
-                <Counter />
-                <Weather />
+                <Questionnaire />
             </div>
         );
     }

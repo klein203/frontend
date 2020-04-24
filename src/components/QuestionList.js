@@ -1,27 +1,24 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Question from './Question';
+import QuestionItem from './QuestionItem';
 
 
 class QuestionList extends React.Component {
     static propTypes = {
         questions: PropTypes.arrayOf(PropTypes.shape({
             id: PropTypes.number.isRequired,
-            text: PropTypes.string.isRequired,
-            editing: PropTypes.string.isRequired
-          }).isRequired).isRequired,
-          actions: PropTypes.object.isRequired
+            title: PropTypes.string.isRequired,
+            editing: PropTypes.bool.isRequired
+          }).isRequired).isRequired
     }
 
-    id: 1,
-    title: 'New Question',
-    // type: 'OPEN_QUESTION',
-    editing: false
     render() {
         const { questions } = this.props;
         return (
             <section className="main">
-                { questions.map(question => <Question key={ question.id } title={ question.title } {...questions} />) }
+                { questions.map(question => 
+                    <QuestionItem key={ question.id } question={ question } />
+                ) }
             </section>
         );
     }

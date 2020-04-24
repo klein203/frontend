@@ -1,7 +1,7 @@
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import Questionnaire from '../components/Questionnaire';
-import addQuestion from '../actions';
+import { addQuestion } from '../actions/question';
 
 
 const mapStateToProps = state => ({

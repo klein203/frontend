@@ -1,43 +1,26 @@
-import { ADD_QUESTIONNAIRE, EDIT_QUESTIONNAIRE_TITLE } from '../types';
+import { ADD_QUESTION, EDIT_QUESTION } from '../types';
 
-const initialState = [
-    {
-        id: 1,
-        title: 'New Questionnaire',
-        editing: false,
-        questions: [
-            {
-                id: 1,
-                title: 'New Question',
-                type: 'OPEN_QUESTION',
-                editing: false,
-                content: [
-                    {
-                        text: '',
-                        placeholder: 'Please answer the question.',
-                        editing: false
-                    }
-                ]
-            }
-        ]
-    }
-];
+const initialState = [{
+    id: 1,
+    title: 'New Question',
+    // type: 'OPEN_QUESTION',
+    editing: false
+}]
 
 const questionnaire = (state = initialState, action) => {
     switch (action.type) {
-        case ADD_QUESTIONNAIRE:
+        case ADD_QUESTION:
             return [
-              ...state,
-              {
-                id: state.reduce((maxId, todo) => Math.max(todo.id, maxId), 0) + 1,
-                title: 'New Questionnaire',
-                editing: false,
-                questions: []
-              }
+                ...state,
+                {
+                    id: state.reduce((maxId, question) => Math.max(question.id, maxId), 0) + 1,
+                    title: 'New Question',
+                    editing: true
+                }
             ];
-        case EDIT_QUESTIONNAIRE_TITLE:
-            return state.map(questionnnaire =>
-                questionnnaire.id === action.id ? { ...questionnnaire, title: action.title } : questionnaire
+        case EDIT_QUESTION:
+            return state.map(question =>
+                question.id === action.id ? { ...question, title: action.title } : question
             );
         default:
             return state;

@@ -1,24 +1,30 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import QuestionItem from './QuestionItem';
+import Question from './Question';
 
 
-class QuestionnaireItemList extends React.Component {
+class QuestionList extends React.Component {
     static propTypes = {
-        onFetchClick: PropTypes.func.isRequired
+        questions: PropTypes.arrayOf(PropTypes.shape({
+            id: PropTypes.number.isRequired,
+            text: PropTypes.string.isRequired,
+            editing: PropTypes.string.isRequired
+          }).isRequired).isRequired,
+          actions: PropTypes.object.isRequired
     }
 
+    id: 1,
+    title: 'New Question',
+    // type: 'OPEN_QUESTION',
+    editing: false
     render() {
-        // const { onNewQuestionnaire } = this.props;
+        const { questions } = this.props;
         return (
-            <div>
-                <QuestionItem />
-                <QuestionItem />
-                <QuestionItem />
-                <QuestionItem />
-            </div>
-        )
+            <section className="main">
+                { questions.map(question => <Question key={ question.id } title={ question.title } {...questions} />) }
+            </section>
+        );
     }
 }
 
-export default QuestionnaireItemList;
+export default QuestionList;

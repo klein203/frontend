@@ -1,25 +1,29 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import QuestionItem from './QuestionItem';
+import Question from './Question';
+import { Button } from 'antd';
 
 
 class QuestionList extends React.Component {
     static propTypes = {
-        questions: PropTypes.arrayOf(PropTypes.shape({
-            id: PropTypes.number.isRequired,
-            title: PropTypes.string.isRequired,
-            editing: PropTypes.bool.isRequired
-          }).isRequired).isRequired
+        questions: PropTypes.array.isRequired,
+        actions: PropTypes.object.isRequired
     }
 
     render() {
-        const { questions } = this.props;
+        const { questions, actions } = this.props;
         return (
-            <section className="main">
-                { questions.map(question => 
-                    <QuestionItem key={ question.id } question={ question } />
-                ) }
-            </section>
+            <div>
+                <Button type="primary" onClick={() => actions.createQuestion()}>Add New Question</Button>
+                <section className="main">
+                    {questions.map(question =>
+                        <Question key={question.id}
+                            question={question}
+                            updateQuestion={actions.updateQuestion}
+                            deleteQuestion={actions.deleteQuestion} />
+                    )}
+                </section>
+            </div>
         );
     }
 }

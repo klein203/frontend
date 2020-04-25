@@ -1,12 +1,17 @@
-import { ADD_QUESTION, EDIT_QUESTION } from '../types';
+import { CREATE_QUESTION, UPDATE_QUESTION, DELETE_QUESTION } from '../types';
 
 
-export const addQuestion = () => ({
-    type: ADD_QUESTION
+export const createQuestion = () => ({
+    type: CREATE_QUESTION
 });
 
-export const editQuestion = (id, title) => ({
-    type: EDIT_QUESTION,
+export const updateQuestion = (id, title) => ({
+    type: UPDATE_QUESTION,
     id,
     title
+});
+
+export const deleteQuestion = (id) => ({
+    type: DELETE_QUESTION,
+    id
 });

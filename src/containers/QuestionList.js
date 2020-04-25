@@ -1,6 +1,7 @@
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import QuestionList from '../components/QuestionList';
+import * as QuestionActions from '../actions/question';
 
 
 const mapStateToProps = state => ({
@@ -8,9 +9,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-    // bindActionCreators({
-    //     onAddNewQuestion: (pid) => addNewQuestion(pid)
-    // }, dispatch)
+    actions: bindActionCreators(QuestionActions, dispatch)
 });
 
 export default connect(
